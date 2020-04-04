@@ -50,7 +50,7 @@ const handleClick = (event) => {
         checkboxElements.forEach(e => e.disabled = true);
 
         console.log(Number(progress) > Number(progressPercentage));
-        if (progressPercentage === percentage || (toIncrement > 0 && Number(percentage) > Number(progressPercentage)) || (toIncrement < 0 && Number(percentage) < Number(progressPercentage))) {
+        if ((toIncrement > 0 && Number(percentage) >= Number(progressPercentage)) || (toIncrement < 0 && Number(percentage) <= Number(progressPercentage)) || Math.floor(percentage) <= 0 || Math.ceil >= 100) {
             progressPercentageEle.innerText = progressPercentage + " %";
 
             checkboxElements.forEach(e => e.disabled = false);
