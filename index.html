@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Progress Bar - Weight Based</h1>
+    <div id="progress-percentage"></div>
+    <div id="progress-bar" class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="form-container">
+        <form>
+            <div class="input-container"><label class="container">Task 1<input type="checkbox" name="task_1" weight="9"
+                        onclick="handleClick(this);" id="task_1"><span class="checkmark"></span></label></div>
+            <div class="input-container"><label class="container">Task 2<input type="checkbox" name="task_2" weight="2"
+                        onclick="handleClick(this);" id="task_2"><span class="checkmark"></span></label></div>
+            <div class="input-container"><label class="container">Task 3<input type="checkbox" name="task_3" weight="2"
+                        onclick="handleClick(this);" id="task_3"><span class="checkmark"></span></label></div>
+            <div class="input-container"><label class="container">Task 4<input type="checkbox" name="task_4" weight="2"
+                        onclick="handleClick(this);" id="task_4"><span class="checkmark"></span></label></div>
+            <div class="input-container"><label class="container">Task 5<input type="checkbox" name="task_5" weight="2"
+                        onclick="handleClick(this);" id="task_5"><span class="checkmark"></span></label></div>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
