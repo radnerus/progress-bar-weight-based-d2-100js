@@ -22,7 +22,6 @@ const handleClick = (event) => {
     if (interval) {
         clearInterval(interval);
     }
-    console.log(interval);
     const currentElement = checkboxIdValueMap[event.id];
     currentElement.checked = event.checked;
 
@@ -49,7 +48,6 @@ const handleClick = (event) => {
         progressPercentageEle.innerText = percentage + " %";
         checkboxElements.forEach(e => e.disabled = true);
 
-        console.log(Number(progress) > Number(progressPercentage));
         if ((toIncrement > 0 && Number(percentage) >= Number(progressPercentage)) || (toIncrement < 0 && Number(percentage) <= Number(progressPercentage)) || Math.floor(percentage) <= 0 || Math.ceil >= 100) {
             progressPercentageEle.innerText = progressPercentage + " %";
 
