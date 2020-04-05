@@ -33,24 +33,29 @@ const handleClick = (event) => {
 
     progressPercentage = (progress / totalWeight * 100).toFixed(2);
 
-    const progressBarWidth = parseFloat(progressBar.offsetWidth) || 0;
+    const progressBarWidth = progressBar.offsetWidth;
     const widthOfProgress = Math.floor(progressPercentage / 100 * progressBarWidth);
 
 
-    const initialWidth = parseFloat(progressEle.style.width) || 0;
+    const initialWidth = progressEle.offsetWidth;
     const toIncrement = widthOfProgress - initialWidth;
-    const steps = toIncrement / 25;
+    const noOfSteps = 25;
+    const steps = toIncrement / noOfSteps;
+    console.log('steps', steps);
+    let count = 0;
 
     interval = setInterval(() => {
-        progressEle.style.width = (parseFloat(progressEle.style.width) || 0) + steps + "px";
+        count++;
+        progressEle.style.width = (progressEle.offsetWidth) + steps + "px";
 
-        const percentage = ((parseFloat(progressEle.style.width)) / progressBarWidth * 100).toFixed(2);
+        const percentage = ((parseFloat(progressEle.offsetWidth)) / progressBarWidth * 100).toFixed(2);
         progressPercentageEle.innerText = percentage + " %";
         checkboxElements.forEach(e => e.disabled = true);
+        console.log(percentage);
 
-        if ((toIncrement > 0 && Number(percentage) >= Number(progressPercentage)) || (toIncrement < 0 && Number(percentage) <= Number(progressPercentage)) || Math.floor(percentage) <= 0 || Math.ceil >= 100) {
+        if ((toIncrement > 0 && Number(percentage) >= Number(progressPercentage)) || (toIncrement < 0 && Number(percentage) <= Number(progressPercentage)) || count === noOfSteps) {
             progressPercentageEle.innerText = progressPercentage + " %";
-
+            progressEle.style.width = widthOfProgress + 'px';
             checkboxElements.forEach(e => e.disabled = false);
             clearInterval(interval);
         }
