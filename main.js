@@ -41,7 +41,6 @@ const handleClick = (event) => {
     const toIncrement = widthOfProgress - initialWidth;
     const noOfSteps = 25;
     const steps = toIncrement / noOfSteps;
-    console.log('steps', steps);
     let count = 0;
 
     interval = setInterval(() => {
@@ -51,7 +50,6 @@ const handleClick = (event) => {
         const percentage = ((parseFloat(progressEle.offsetWidth)) / progressBarWidth * 100).toFixed(2);
         progressPercentageEle.innerText = percentage + " %";
         checkboxElements.forEach(e => e.disabled = true);
-        console.log(percentage);
 
         if ((toIncrement > 0 && Number(percentage) >= Number(progressPercentage)) || (toIncrement < 0 && Number(percentage) <= Number(progressPercentage)) || count === noOfSteps) {
             progressPercentageEle.innerText = progressPercentage + " %";
